@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
+<h1>{{ title }}</h1>
+
+{% include 'women/includes/nav.html' %}
+
 <ul>
     {% for post in posts %}
     {% if post.is_published %}
@@ -14,4 +18,7 @@
     {% endif %}   
     {% endfor %}
 </ul>
+
+{% include 'women/includes/nav.html' %}
+
 {% endblock %}
