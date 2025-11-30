@@ -7,7 +7,7 @@ from . import converters
 register_converter(converters.FourDigitYearConverter, "year4")
 
 urlpatterns = [
-    path("", views.index, name="index"),
+    path("", views.index, name="home"),
     path("about/", views.about, name="about"),
     path("create_article/", views.create_article, name="article_create"),
     path("contact/", views.contact_view, name="contact"),

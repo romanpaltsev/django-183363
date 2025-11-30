@@ -1,20 +1,49 @@
-from django.http import HttpResponse, HttpRequest, HttpResponseNotFound, HttpResponsePermanentRedirect, HttpResponseRedirect
+from django.http import (
+    HttpResponse,
+    HttpRequest,
+    HttpResponseNotFound,
+    HttpResponsePermanentRedirect,
+    HttpResponseRedirect,
+)
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.template.loader import render_to_string
 
 
-menu = [{'title': "О сайте", 'url_name': 'about'},
-        {'title': "Добавить статью", 'url_name': 'article_create'},
-        {'title': "Обратная связь", 'url_name': 'contact'},
-        {'title': "Войти", 'url_name': 'login'}
+menu = [
+    {"title": "О сайте", "url_name": "about"},
+    {"title": "Добавить статью", "url_name": "article_create"},
+    {"title": "Обратная связь", "url_name": "contact"},
+    {"title": "Войти", "url_name": "login"},
 ]
 
 data_db = [
-    {'id': 1, 'title': 'Анджелина Джоли', 'content': 'Биография Анджелины Джоли', 'is_published': True},
-    {'id': 2, 'title': 'Марго Робби', 'content': 'Биография Марго Робби', 'is_published': False},
-    {'id': 3, 'title': 'Джулия Робертс', 'content': 'Биография Джулии Робертс', 'is_published': True},
-    ]
+    {
+        "id": 1,
+        "title": "Анджелина Джоли",
+        "content": "Биография Анджелины Джоли",
+        "is_published": True,
+    },
+    {
+        "id": 2,
+        "title": "Марго Робби",
+        "content": "Биография Марго Робби",
+        "is_published": False,
+    },
+    {
+        "id": 3,
+        "title": "Джулия Робертс",
+        "content": "Биография Джулии Робертс",
+        "is_published": True,
+    },
+]
+
+cats_db = [
+    {"id": 1, "name": "Актрисы"},
+    {"id": 2, "name": "Певицы"},
+    {"id": 3, "name": "Спортсменки"},
+]
+
 
 def index(request: HttpRequest) -> HttpResponse:
     data = {
@@ -26,10 +55,7 @@ def index(request: HttpRequest) -> HttpResponse:
 
 
 def about(request: HttpRequest) -> HttpResponse:
-    data = {
-        "title": "О сайте",
-        "menu": menu
-    }
+    data = {"title": "О сайте", "menu": menu}
     return render(request, "women/about.html", data)
 
 
