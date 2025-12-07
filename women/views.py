@@ -50,6 +50,7 @@ def index(request: HttpRequest) -> HttpResponse:
         "title": "Главная страница",
         "menu": menu,
         "posts": data_db,
+        "cat_selected": 0,
     }
     return render(request, "women/index.html", data)
 
@@ -73,6 +74,16 @@ def login_view(request):
 
 def post_detail(request, post_id):
     return HttpResponse(f"Отображение статьи с id = {post_id}")
+
+
+def show_category(request, cat_id):
+    data = {
+        "title": "Отображение по категориям",
+        "menu": menu,
+        "posts": data_db,
+        "cat_selected": cat_id,
+    }
+    return render(request, "women/index.html", data)
 
 
 def page_not_found(request, exception):
