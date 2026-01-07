@@ -1,2 +1,2 @@
 Это учебный проект с курса Stepik.org
-https://stepik.org/lesson/1089297/
+https://stepik.org/course/183363/info
